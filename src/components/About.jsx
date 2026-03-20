@@ -3,21 +3,22 @@ function About({ strengths, recentFocus }) {
     <section className="panel about" id="about">
       <div className="panel-header">
         <h2>About</h2>
-        <p>Calm, deliberate engineering with a focus on reliability.</p>
+      </div>
+      <div>
+          <p>AI empowered software engineering with a focus on reliability and scalability.</p>
       </div>
       <div className="panel-content about-grid">
         <p className="about-copy">
-          I care about building services that are correct, observable, and easy to
-          evolve. My work spans financial systems and consulting projects, from API
-          design to deployment in the cloud. I enjoy taking ambiguous requirements,
-          shaping them into solid designs, and delivering solutions that are simple to
-          reason about and straightforward to operate.
+          I build applications that are scalable, reliable and observable, leveraging AI tools 
+          to accelerate productivity. My work includes building APIs in Java / Spring Boot, writing
+          automated test suites in Playwright / Typescript, leveraging real-time data pipelines 
+          with PubSub/Kafka and BigQuery/SQL. 
         </p>
         <div className="about-tiles">
           <div className="tile">
             <span className="tile-label">Years of experience</span>
             <span className="tile-value">2+</span>
-            <span className="tile-caption">Professional software development</span>
+            <span className="tile-caption">software development</span>
           </div>
           <div className="tile">
             <span className="tile-label">Core strengths</span>

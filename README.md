@@ -1,6 +1,6 @@
-# Yifan Yang Portfolio (React)
+# Yifan Yang Digital Portfolio
 
-A production-ready portfolio site built with React and Vite, with a minimalist dark theme.
+Portfolio site built with React and Vite, with a minimalist dark theme.
 
 ## Tech stack
 

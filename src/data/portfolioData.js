@@ -6,21 +6,21 @@ export const navItems = [
 ];
 
 export const metaItems = [
-  { label: "Location", value: "Sydney · Open to remote" },
-  { label: "Focus", value: "Backend services, cloud platforms" },
-  { label: "Stack", value: "Java, Spring Boot, Python, React, AWS, GCP" },
+  { label: "Location", value: "Melbourne · Open to remote opportunities" },
+  { label: "Focus", value: "Backend services, APIs, AI apps" },
+  { label: "Stack", value: "Java/Spring, Python, React.js, TypeScript" },
 ];
 
 export const skills = {
-  strengths: ["API design", "Backend development", "Cloud infrastructure"],
-  recentFocus: ["Java & Spring Boot", "AWS & GCP", "Microservices"],
+  strengths: ["API Design", "Automation Testing", "Data-eventing Solutions"],
+  recentFocus: ["Java & Spring Boot", "Playwright Automation", "AI powered dev"],
 };
 
 export const experience = [
   {
     roleType: "Software Engineer",
-    company: "Macquarie Group · Sydney",
-    title: "Backend & API development",
+    company: "Macquarie Group · Melbourne",
+    title: "Backend API development + Automation",
     description:
       "Worked on backend services and APIs in a large-scale financial environment, contributing to systems that require robustness, clear contracts, and careful performance considerations.",
     highlights: [
@@ -31,7 +31,7 @@ export const experience = [
   },
   {
     roleType: "Software Engineer Intern",
-    company: "Infosys · Remote",
+    company: "Infosys · Melbourne",
     title: "Microservice & API development",
     description:
       "Built and iterated on microservice-style APIs in a consulting context, collaborating with engineers and stakeholders to deliver client projects.",
