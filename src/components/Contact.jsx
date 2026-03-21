@@ -1,20 +1,27 @@
 function Contact() {
   return (
     <section className="panel contact" id="contact">
-      <div className="panel-header">
-        <h2>Contact</h2>
-        <p>Open to thoughtful conversations and good engineering problems.</p>
-      </div>
       <div className="panel-content contact-grid">
-        <div>
+        <div className="contact-left">
+          <div className="panel-header contact-panel-header">
+            <h2>Contact Me</h2>
+          </div>
+          <div className="contact-column">
+          <p className="contact-copy contact-copy--lead">
+            Open to thoughtful conversations and good engineering problems.
+          </p>
           <p className="contact-copy">
             If you are assembling a team that values craft, ownership, and calm
             collaboration, I would love to hear from you.
           </p>
           <div className="contact-details">
-            <a href="mailto:yifan@example.com" className="contact-link">
+            <a href="mailto:yifanyang80@gmail.com" className="contact-link">
               <span>Email</span>
-              <span>yifan@example.com</span>
+              <span>yifanyang80@gmail.com</span>
+            </a>
+            <a className="contact-link">
+              <span>Mobile</span>
+              <span>(+61) 451 389 103</span>
             </a>
             <a
               href="https://github.com/legityif"
@@ -26,15 +33,16 @@ function Contact() {
               <span>@legityif</span>
             </a>
             <a
-              href="https://instagram.com/naf_aus"
+              href="https://www.linkedin.com/in/yifan-yang-6a8a1a106/"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
             >
-              <span>Instagram</span>
-              <span>@naf_aus</span>
+              <span>LinkedIn</span>
+              <span>@YifanYang</span>
             </a>
           </div>
+        </div>
         </div>
         <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
           <div className="field">
@@ -45,7 +53,7 @@ function Contact() {
             <label htmlFor="email">Email</label>
             <input id="email" type="email" placeholder="Where can I reply?" />
           </div>
-          <div className="field">
+          <div className="field field--grow">
             <label htmlFor="message">Message</label>
             <textarea
               id="message"

@@ -10,7 +10,12 @@ function Experience({ roles }) {
           <article className="timeline-item" key={`${role.company}-${role.roleType}`}>
             <div className="timeline-meta">
               <span className="pill">{role.roleType}</span>
-              <span className="company">{role.company}</span>
+              <div className="timeline-meta-end">
+                <span className="company">{role.company}</span>
+                {role.period ? (
+                  <span className="timeline-period">{role.period}</span>
+                ) : null}
+              </div>
             </div>
             <h3>{role.title}</h3>
             <p>{role.description}</p>

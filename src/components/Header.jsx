@@ -2,7 +2,7 @@ function Header({ navItems }) {
   return (
     <header className="header">
       <div className="brand">
-        <div className="brand-mark">Y.Y</div>
+        <div className="brand-mark">YY</div>
         <div className="brand-text">
           <span className="brand-name">Yifan Yang</span>
           <span className="brand-role">Software engineer · Backend</span>

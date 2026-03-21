@@ -1,13 +1,14 @@
 export const navItems = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
 export const metaItems = [
   { label: "Location", value: "Melbourne · Open to remote opportunities" },
-  { label: "Focus", value: "Backend services, APIs, AI apps" },
+  { label: "Focus", value: "Backend services, APIs, Automation" },
   { label: "Stack", value: "Java/Spring, Python, React.js, TypeScript" },
 ];
 
@@ -22,34 +23,58 @@ export const experience = [
     company: "Macquarie Group · Melbourne",
     title: "Backend API development + Automation",
     description:
-      "Worked on backend services and APIs in a large-scale financial environment, contributing to systems that require robustness, clear contracts, and careful performance considerations.",
+      "Backend services and APIs in a large-scale financial environment—systems that demand robust contracts, performance discipline, and operational clarity.",
     highlights: [
-      "Developed and maintained RESTful APIs using Java and Spring Boot.",
-      "Worked with SQL-backed data models and optimized queries.",
+      "Developed and maintained RESTful APIs with Java and Spring Boot.",
+      "Worked with SQL-backed models and query performance.",
       "Deployed and operated services on AWS and GCP.",
     ],
   },
   {
     roleType: "Software Engineer Intern",
     company: "Infosys · Melbourne",
-    title: "Microservice & API development",
+    period: "01.2023 – 03.2023",
+    title: "Data, ML & observability platform",
     description:
-      "Built and iterated on microservice-style APIs in a consulting context, collaborating with engineers and stakeholders to deliver client projects.",
+      "Internship focused on text analytics, supervised learning, and an observability product that unified incident data, public feeds, and API-driven sources.",
     highlights: [
-      "Implemented backend services using Python and Flask.",
-      "Designed and documented API contracts for internal consumers.",
-      "Contributed to microservice integration and testing.",
+      "Analysed incident and public text streams with Python NLP and MongoDB; built supervised ML models to categorise text at scale.",
+      "Worked on a multidimensional observability platform—sentiment and signal analysis across ServiceNow, Twitter, and similar APIs.",
+      "Contributed full-stack to the platform’s web application alongside the core engineering team.",
+    ],
+  },
+  {
+    roleType: "Software Support Engineer",
+    company: "ATTAR · Melbourne",
+    period: "05.2022 – 01.2023",
+    title: "Infrastructure, security & internal systems",
+    description:
+      "Hands-on support across software delivery, infrastructure, and enterprise tooling in a compact engineering environment.",
+    highlights: [
+      "Helped implement and roll out internal software projects end-to-end.",
+      "Maintained network security posture, hardware health, and system databases.",
+      "Administered SharePoint, Azure, and NAS; managed server and database operations day to day.",
     ],
   },
 ];
 
+export const education = {
+  school: "University of Melbourne",
+  degree: "Bachelor of Science",
+  period: "2021 – 2024",
+  highlights: [
+    "Computing & Software Systems major",
+    "Corporate Finance breadth track",
+  ],
+};
+
 export const projects = [
   {
     tag: "Game development",
-    year: "Pacman",
+    year: "Java",
     title: "Pacman clone",
     description:
-      "A playable Pacman-style game, built as a way to explore pathfinding, state machines, and rendering loops.",
+      "Pacman-style game, explores pathfinding, state machines, and rendering loops.",
     highlights: [
       "Implemented character movement, ghosts, and collision logic.",
       "Experimented with simple AI behaviour for enemy movement.",
@@ -73,7 +98,7 @@ export const projects = [
     year: "React & MERN",
     title: "CRM app",
     description:
-      "A CRM-style web application built with React and a MERN backend, used to manage contacts and simple sales workflows.",
+      "Web application build on MERN, with productivity & messaging features",
     highlights: [
       "Implemented CRUD flows and authentication using the MERN stack.",
       "Focused on UI responsiveness and clear data flows in React.",

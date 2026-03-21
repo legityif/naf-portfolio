@@ -20,7 +20,7 @@ function Projects({ projects }) {
               ))}
             </ul>
             <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
-              View sample
+              Github
             </a>
           </article>
         ))}

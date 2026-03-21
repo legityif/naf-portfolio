@@ -150,7 +150,6 @@ a {
 
 .hero-subtitle {
   margin: 0 0 22px;
-  max-width: 640px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -238,16 +237,46 @@ a {
   color: var(--text-secondary);
 }
 
+/* About: lede on its own row, then copy + tiles — avoids tagline visually crossing tiles */
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-panel-header {
+  margin-bottom: 12px;
+}
+
+.about-lede {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.about-divider {
+  height: 1px;
+  width: min(4.5rem, 100%);
+  margin: 0;
+  border: none;
+  background: linear-gradient(90deg, rgba(123, 92, 255, 0.45), transparent);
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
   gap: 22px;
+  align-items: start;
 }
 
 .about-copy {
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.5;
   color: var(--text-secondary);
+  font-size: 15px;
 }
 
 .about-tiles {
@@ -330,8 +359,8 @@ a {
 .pill {
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 11px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  font-size: 14px;
 }
 
 .company,
@@ -340,14 +369,153 @@ a {
   color: var(--text-muted);
 }
 
+.timeline-meta-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  text-align: right;
+  min-width: 0;
+}
+
+.timeline-period {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  opacity: 0.88;
+  white-space: nowrap;
+}
+
+.timeline-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
 .timeline-item p,
 .card p {
   color: var(--text-secondary);
   line-height: 1.6;
+  font-size: 14px;
+}
+
+.timeline-item ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+  padding-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.timeline-item li {
+  font-size: 12px;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+
+.timeline-item li:last-child {
+  margin-bottom: 0;
+}
+
+/* Education */
+.education-card {
+  border-radius: 18px;
+  padding: 18px 17px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at top left, rgba(123, 92, 255, 0.08), transparent 55%), #090a11;
+  box-shadow: var(--shadow-subtle);
+}
+
+.education-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.education-school {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--text-primary);
+}
+
+.education-degree {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.education-period {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--accent-strong);
+  padding-top: 2px;
+}
+
+.education-highlights {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.education-highlights li {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+.education-highlights li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .timeline-meta {
+    flex-wrap: wrap;
+  }
+
+  .timeline-meta-end {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+  }
+
+  .timeline-period {
+    white-space: normal;
+  }
+
+  .education-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .project-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+/* Fill row height so the GitHub link can sit on a shared baseline */
+.projects .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
 .card-tag {
@@ -357,28 +525,120 @@ a {
   color: var(--text-muted);
 }
 
+/* Project cards — compact, muted highlight list */
+.projects .card ul {
+  list-style: none;
+  margin: 12px 0 6px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projects .card li {
+  position: relative;
+  margin: 0;
+  padding-left: 0.9rem;
+  font-size: 12px;
+  line-height: 1.52;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.projects .card li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 0.58em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(210, 195, 255, 0.4);
+}
+
 .project-link {
-  margin-top: 6px;
   color: var(--accent-strong);
   font-size: 13px;
 }
 
+.projects .project-link {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+/* Contact: header lives in left column so the form can start at the top of the grid row */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.contact-panel-header {
+  margin-bottom: 0;
+}
+
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.contact-grid .contact-form {
+  margin-top: 0;
+  margin-left: 10px;
+  padding: 20px;
+}
+
+/* Top-align form controls; grow message area to fill remaining height (no dead space at top) */
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.contact-form .field--grow {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-bottom: 10px;
+}
+
+.contact-form .field--grow textarea {
+  flex: 1 1 auto;
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .contact-copy {
-  margin: 0 0 16px;
+  margin-top: 0px;
   line-height: 1.7;
+  font-size: 13px;
   color: var(--text-secondary);
+  font-family: var(--font-display)
+}
+
+.contact-copy--lead {
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .contact-details {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 5px;
 }
 
 .contact-link {
@@ -452,6 +712,11 @@ textarea {
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .contact-grid .contact-form {
+    max-width: 100%;
   }
 }
 

@@ -7,12 +7,12 @@ function Hero({ metaItems }) {
       </h1>
       <h1 className="hero-title">
         <span className="accent"> I design reliable software systems 
-          leveraging the power of AI tools. </span>
+          leveraging AI. </span>
       </h1>
       <p className="hero-subtitle">
         Software engineer with experience across the finance and technology sectors. 
-        I leverage the power of AI and build reliable backend services, clean APIs, 
-        and infrastructure that scales.
+        I leverage the power of AI tools and build reliable backend services, clean APIs, 
+        and infrastructure that scales with comprehensive test coverage, observability and scalability.
       </p>
       <div className="hero-actions">
         <a href="#contact" className="button primary">
