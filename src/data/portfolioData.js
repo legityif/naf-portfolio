@@ -71,21 +71,21 @@ export const education = {
 
 export const projects = [
   {
-    tag: "Game development",
-    year: "Java",
-    title: "Pacman clone",
+    tag: "Full-stack web",
+    year: "React & MERN",
+    title: "CRM Web App",
     description:
-      "Pacman-style game, explores pathfinding, state machines, and rendering loops.",
+      "Web application build on MERN, with productivity & messaging features",
     highlights: [
-      "Implemented character movement, ghosts, and collision logic.",
-      "Experimented with simple AI behaviour for enemy movement.",
+      "Implemented CRUD flows and authentication using the MERN stack.",
+      "Focused on UI responsiveness and clear data flows in React.",
     ],
     link: "https://github.com/legityif",
   },
   {
     tag: "Graphics & rendering",
     year: "C#",
-    title: "Ray tracer",
+    title: "Primitive Ray Tracer",
     description:
       "A basic ray tracer implemented in C#, rendering simple scenes from first principles.",
     highlights: [
@@ -95,14 +95,14 @@ export const projects = [
     link: "https://github.com/legityif",
   },
   {
-    tag: "Full-stack web",
-    year: "React & MERN",
-    title: "CRM app",
+    tag: "Game development",
+    year: "Java",
+    title: "Pacman Style Game",
     description:
-      "Web application build on MERN, with productivity & messaging features",
+      "Pacman-style game, explores pathfinding, state machines, and rendering loops.",
     highlights: [
-      "Implemented CRUD flows and authentication using the MERN stack.",
-      "Focused on UI responsiveness and clear data flows in React.",
+      "Implemented character movement, ghosts, and collision logic.",
+      "Experimented with simple AI behaviour for enemy movement.",
     ],
     link: "https://github.com/legityif",
   },
