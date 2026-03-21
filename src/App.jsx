@@ -18,9 +18,21 @@ function App() {
     const targets = Array.from(document.querySelectorAll(selector));
     if (!targets.length) return;
 
-    targets.forEach((el, index) => {
+    targets.forEach((el) => {
       el.classList.add("reveal-on-scroll");
-      el.style.setProperty("--reveal-delay", `${Math.min(index * 45, 260)}ms`);
+    });
+
+    // Apply staggered delays: project cards get their own index count
+    let globalIndex = 0;
+    let cardIndex = 0;
+    targets.forEach((el) => {
+      if (el.classList.contains("card")) {
+        el.style.setProperty("--reveal-delay", `${cardIndex * 80}ms`);
+        cardIndex++;
+      } else {
+        el.style.setProperty("--reveal-delay", `${Math.min(globalIndex * 45, 260)}ms`);
+      }
+      globalIndex++;
     });
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
