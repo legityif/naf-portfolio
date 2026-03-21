@@ -3,7 +3,6 @@ function Projects({ projects }) {
     <section className="panel projects" id="projects">
       <div className="panel-header">
         <h2>Selected projects</h2>
-        <p>A few representative projects. Demos and code available on request.</p>
       </div>
       <div className="panel-content project-grid">
         {projects.map((project) => (

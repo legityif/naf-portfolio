@@ -65,8 +65,6 @@ function Contact() {
             Send message
           </button>
           <p className="form-note">
-            Static form for now. Connect this to Formspree, Netlify Forms, or your own
-            backend when ready.
           </p>
         </form>
       </div>
