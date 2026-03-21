@@ -12,7 +12,7 @@ function Hero({ metaItems }) {
       <p className="hero-subtitle">
         Software engineer with experience across the finance and technology sectors. 
         I leverage the power of AI tools and build reliable backend services, clean APIs, 
-        and infrastructure that scales with comprehensive test coverage, observability and scalability.
+        and infrastructure that scales with comprehensive test coverage and observability.
       </p>
       <div className="hero-actions">
         <a href="#contact" className="button primary">

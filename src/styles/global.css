@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap");
 
 :root {
-  --bg-main: #03040a;
-  --bg-deep: #020308;
+  --bg-main: #020307;
+  --bg-deep: #010205;
   --text-primary: #f5f6fb;
   --text-secondary: #a0a4b8;
   --text-muted: #7a7e90;
@@ -11,23 +11,23 @@
   --radius-lg: 20px;
   --radius-xl: 26px;
   --radius-pill: 999px;
-  --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 24px 64px rgba(0, 0, 0, 0.58);
   --shadow-subtle: 0 1px 0 rgba(255, 255, 255, 0.04);
   /* Liquid glass */
-  --glass-blur: 22px;
-  --glass-saturate: 160%;
+  --glass-blur: 10px;
+  --glass-saturate: 120%;
   --glass-panel: linear-gradient(
     135deg,
-    rgba(18, 16, 32, 0.52) 0%,
-    rgba(10, 12, 24, 0.48) 50%,
-    rgba(8, 10, 22, 0.55) 100%
+    rgba(11, 12, 24, 0.74) 0%,
+    rgba(8, 10, 20, 0.7) 50%,
+    rgba(6, 8, 18, 0.78) 100%
   );
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.09);
   --glass-nested: linear-gradient(
     145deg,
-    rgba(20, 18, 38, 0.42) 0%,
-    rgba(12, 14, 26, 0.38) 100%
+    rgba(14, 16, 30, 0.64) 0%,
+    rgba(10, 12, 22, 0.58) 100%
   );
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -46,40 +46,51 @@ html {
 
 @keyframes bg-fluid-a {
   0% {
-    transform: translate(-8%, -6%) scale(1) rotate(0deg);
+    transform: translate3d(-6%, -5%, 0) scale(1.01);
   }
   50% {
-    transform: translate(10%, 4%) scale(1.08) rotate(6deg);
+    transform: translate3d(7%, 3%, 0) scale(1.04);
   }
   100% {
-    transform: translate(4%, 10%) scale(0.98) rotate(-4deg);
+    transform: translate3d(3%, 8%, 0) scale(1.01);
   }
 }
 
 @keyframes bg-fluid-b {
   0% {
-    transform: translate(6%, 8%) scale(1.05) rotate(-3deg);
+    transform: translate3d(5%, 7%, 0) scale(1.02);
   }
   50% {
-    transform: translate(-12%, -4%) scale(1.12) rotate(5deg);
+    transform: translate3d(-8%, -3%, 0) scale(1.05);
   }
   100% {
-    transform: translate(2%, -10%) scale(1) rotate(2deg);
+    transform: translate3d(2%, -8%, 0) scale(1.02);
   }
 }
 
 @keyframes bg-fluid-c {
   0% {
-    transform: translate(0%, 0%) scale(1.1);
-    opacity: 0.35;
+    transform: translate3d(0%, 0%, 0) scale(1.04);
+    opacity: 0.26;
   }
   50% {
-    transform: translate(-15%, 12%) scale(1.18);
-    opacity: 0.5;
+    transform: translate3d(-8%, 7%, 0) scale(1.08);
+    opacity: 0.34;
   }
   100% {
-    transform: translate(12%, -8%) scale(1.02);
-    opacity: 0.38;
+    transform: translate3d(7%, -6%, 0) scale(1.03);
+    opacity: 0.28;
+  }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -113,25 +124,26 @@ body::after {
   z-index: 0;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  filter: blur(1px) saturate(2.0);
+  filter: blur(32px) saturate(1.15);
   will-change: transform;
+  transform: translateZ(0);
 }
 
 body::before {
   background:
     radial-gradient(closest-side at 32% 42%, rgba(123, 92, 255, 0.42), transparent 72%),
     radial-gradient(closest-side at 78% 58%, rgba(82, 56, 190, 0.36), transparent 70%);
-  opacity: 0.85;
-  animation: bg-fluid-a 6s ease-in-out infinite alternate;
+  opacity: 0.62;
+  animation: bg-fluid-a 24s ease-in-out infinite alternate;
 }
 
 body::after {
   background:
     radial-gradient(closest-side at 68% 32%, rgba(110, 85, 230, 0.34), transparent 68%),
     radial-gradient(closest-side at 22% 72%, rgba(55, 42, 130, 0.4), transparent 74%);
-  opacity: 0.65;
+  opacity: 0.52;
   mix-blend-mode: screen;
-  animation: bg-fluid-b 8s ease-in-out infinite alternate;
+  animation: bg-fluid-b 30s ease-in-out infinite alternate;
 }
 
 /* Extra depth: soft violet wash that pulses / drifts */
@@ -146,8 +158,8 @@ body::after {
     rgba(123, 92, 255, 0.12) 0%,
     transparent 65%
   );
-  filter: blur(80px);
-  animation: bg-fluid-c 15s ease-in-out infinite alternate;
+  filter: blur(48px);
+  animation: bg-fluid-c 40s ease-in-out infinite alternate;
   will-change: transform, opacity;
 }
 
@@ -178,6 +190,16 @@ body::after {
     transform: none;
     opacity: 0.4;
   }
+
+  .timeline-item,
+  .card,
+  .contact-form,
+  .education-card,
+  .tile {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 a {
@@ -203,7 +225,7 @@ a {
   border-radius: 999px;
   background: var(--glass-panel);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-soft), var(--glass-inset);
+  box-shadow: var(--shadow-soft), var(--glass-inset), 0 0 0 1px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
 }
@@ -269,7 +291,7 @@ a {
     radial-gradient(circle at 50% 120%, rgba(123, 92, 255, 0.08), transparent 45%),
     var(--glass-panel);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-soft), var(--glass-inset);
+  box-shadow: var(--shadow-soft), var(--glass-inset), 0 0 0 1px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
 }
@@ -286,8 +308,8 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid rgba(123, 255, 201, 0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   margin-bottom: 18px;
 }
 
@@ -303,6 +325,7 @@ a {
 .hero-title .accent {
   background: linear-gradient(120deg, #f6f3ff, #c9b7ff, #7b5cff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -338,8 +361,8 @@ a {
 .button.ghost {
   border-color: rgba(255, 255, 255, 0.14);
   background: rgba(12, 14, 28, 0.35);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(5px) saturate(112%);
+  -webkit-backdrop-filter: blur(5px) saturate(112%);
 }
 
 .button.full-width {
@@ -372,7 +395,7 @@ a {
   border-radius: var(--radius-lg);
   background: var(--glass-panel);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-soft), var(--glass-inset);
+  box-shadow: var(--shadow-soft), var(--glass-inset), 0 0 0 1px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   padding: 22px 22px 20px;
@@ -455,8 +478,8 @@ a {
     var(--glass-nested);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--glass-inset);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(6px) saturate(112%);
+  -webkit-backdrop-filter: blur(6px) saturate(112%);
 }
 
 .tile-label {
@@ -494,8 +517,8 @@ a {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(18, 16, 36, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   font-size: 11px;
 }
 
@@ -514,9 +537,21 @@ a {
   background:
     radial-gradient(ellipse 120% 80% at 50% 0%, rgba(123, 92, 255, 0.12), transparent 55%),
     var(--glass-nested);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), var(--glass-inset);
-  backdrop-filter: blur(18px) saturate(155%);
-  -webkit-backdrop-filter: blur(18px) saturate(155%);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32), var(--glass-inset), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px) saturate(118%);
+  -webkit-backdrop-filter: blur(8px) saturate(118%);
+  animation: card-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  will-change: transform;
+}
+
+.timeline-item:hover,
+.card:hover,
+.contact-form:hover,
+.education-card:hover,
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.36), var(--glass-inset), 0 0 0 1px rgba(130, 112, 255, 0.25);
 }
 
 .timeline-meta,
@@ -533,8 +568,8 @@ a {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(16, 14, 34, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   font-size: 14px;
 }
 
@@ -604,9 +639,11 @@ a {
   background:
     radial-gradient(circle at 0% 0%, rgba(123, 92, 255, 0.12), transparent 50%),
     var(--glass-nested);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), var(--glass-inset);
-  backdrop-filter: blur(18px) saturate(155%);
-  -webkit-backdrop-filter: blur(18px) saturate(155%);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32), var(--glass-inset), 0 0 0 1px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px) saturate(118%);
+  -webkit-backdrop-filter: blur(8px) saturate(118%);
+  animation: card-rise 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .education-card-head {
@@ -695,6 +732,18 @@ a {
   flex-direction: column;
   height: 100%;
   min-height: 0;
+}
+
+.timeline-item:nth-child(2),
+.projects .card:nth-child(2),
+.about-tiles .tile:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.timeline-item:nth-child(3),
+.projects .card:nth-child(3),
+.about-tiles .tile:nth-child(3) {
+  animation-delay: 130ms;
 }
 
 .card-tag {
@@ -860,10 +909,28 @@ textarea {
   border-radius: 12px;
   padding: 9px 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(12, 14, 30, 0.42);
-  backdrop-filter: blur(14px) saturate(150%);
-  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  background: rgba(8, 11, 20, 0.72);
+  backdrop-filter: blur(4px) saturate(112%);
+  -webkit-backdrop-filter: blur(4px) saturate(112%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .header,
+  .hero,
+  .panel,
+  .timeline-item,
+  .card,
+  .contact-form,
+  .education-card,
+  .tile,
+  .chip-list li,
+  .pill,
+  input,
+  textarea {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 .form-note {
