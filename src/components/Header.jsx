@@ -5,7 +5,7 @@ function Header({ navItems }) {
         <div className="brand-mark">YY</div>
         <div className="brand-text">
           <span className="brand-name">Yifan Yang</span>
-          <span className="brand-role">Software engineer · Backend</span>
+          <span className="brand-role">Software Engineer</span>
         </div>
       </div>
       <nav className="nav" aria-label="Main navigation">
