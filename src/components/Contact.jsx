@@ -39,7 +39,7 @@ function Contact() {
               className="contact-link"
             >
               <span>LinkedIn</span>
-              <span>@YifanYang</span>
+              <span>@linkedin.com/yifan-linkedin</span>
             </a>
           </div>
         </div>
