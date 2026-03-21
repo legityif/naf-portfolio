@@ -21,13 +21,14 @@ export const experience = [
   {
     roleType: "Software Engineer",
     company: "Macquarie Group · Melbourne",
+    period: "02.2024 – now",
     title: "Backend API development + Automation",
     description:
-      "Backend services and APIs in a large-scale financial environment—systems that demand robust contracts, performance discipline, and operational clarity.",
+      "Backend services and APIs in a large-scale financial environment — systems that demand clarity, scalability and reliability",
     highlights: [
       "Developed and maintained RESTful APIs with Java and Spring Boot.",
-      "Worked with SQL-backed models and query performance.",
-      "Deployed and operated services on AWS and GCP.",
+      "Developed end-to-end automation test suites in Playwright and Typescript",
+      "Optimised SQL databases, deploying & maintaining production systems"
     ],
   },
   {
