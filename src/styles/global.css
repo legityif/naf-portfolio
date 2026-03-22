@@ -363,14 +363,16 @@ a {
   justify-content: center;
   padding: 9px 16px;
   border-radius: var(--radius-pill);
-  border: 1px solid transparent;
+  border: 1px transparent;
   font-size: 14px;
   font-weight: 500;
+  background-clip: padding-box;
 }
 
 .button.primary {
   background: linear-gradient(135deg, #f4f1ff, #cbbaff, #8d70ff);
   color: #05060a;
+  box-shadow: 0 8px 20px rgba(52, 35, 129, 0.35);
 }
 
 .button.ghost {
