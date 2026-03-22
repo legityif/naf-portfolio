@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -95,10 +95,8 @@ function Contact() {
           className="contact-form"
           name="contact"
           method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}
+          netlify
         >
-          <input type="hidden" name="form-name" value="contact" />
           <div className="field">
             <label htmlFor="name">Name</label>
             <input
@@ -106,39 +104,32 @@ function Contact() {
               name="name"
               type="text"
               placeholder="Who am I speaking with?"
-              value={form.name}
-              onChange={handleChange}
-              disabled={isSubmitting}
+              required
             />
           </div>
           <div className="field">
             <label htmlFor="email">Email</label>
             <input
-              name="email"
               id="email"
+              name="email"
               type="email"
               placeholder="Where can I reply?"
-              value={form.email}
-              onChange={handleChange}
-              disabled={isSubmitting}
+              required
             />
           </div>
           <div className="field field--grow">
             <label htmlFor="message">Message</label>
             <textarea
-              name="message"
               id="message"
+              name="message"
               rows="4"
               placeholder="A few lines about what you are working on."
-              value={form.message}
-              onChange={handleChange}
-              disabled={isSubmitting}
+              required
             />
           </div>
-          <button type="submit" className="button primary full-width" disabled={isSubmitting}>
-            {isSubmitting ? "Sending…" : "Send message"}
+          <button type="submit" className="button primary full-width">
+            Send message
           </button>
-          <p className="form-note">{status}</p>
         </form>
       </div>
     </section>
