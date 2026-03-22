@@ -1,4 +1,50 @@
+import { useState } from "react";
+
 function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setForm((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setStatus("Please fill in all fields before submitting.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus("Sending message...");
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...form }),
+      });
+
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      setForm({ name: "", email: "", message: "" });
+      setStatus("Message sent successfully! I’ll reply shortly.");
+    } catch (error) {
+      setStatus("Failed to send message. Please try again later or email directly.");
+      console.error("Contact form submit error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="panel contact" id="contact">
       <div className="panel-content contact-grid">
@@ -7,51 +53,73 @@ function Contact() {
             <h2>Contact Me</h2>
           </div>
           <div className="contact-column">
-          <p className="contact-copy contact-copy--lead">
-            Open to thoughtful conversations and good engineering problems.
-          </p>
-          <p className="contact-copy">
-            If you are assembling a team that values craft, ownership, and calm
-            collaboration, I would love to hear from you.
-          </p>
-          <div className="contact-details">
-            <a href="mailto:yifanyang80@gmail.com" className="contact-link">
-              <span>Email</span>
-              <span>yifanyang80@gmail.com</span>
-            </a>
-            <a className="contact-link">
-              <span>Mobile</span>
-              <span>(+61) 451 389 103</span>
-            </a>
-            <a
-              href="https://github.com/legityif"
-              target="_blank"
-              rel="noreferrer"
-              className="contact-link"
-            >
-              <span>GitHub</span>
-              <span>@legityif</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yifan-yang-6a8a1a106/"
-              target="_blank"
-              rel="noreferrer"
-              className="contact-link"
-            >
-              <span>LinkedIn</span>
-              <span>@linkedin.com/yifan-linkedin</span>
-            </a>
+            <p className="contact-copy contact-copy--lead">
+              Open to thoughtful conversations and good engineering problems.
+            </p>
+            <p className="contact-copy">
+              If you are assembling a team that values craft, ownership, and calm
+              collaboration, I would love to hear from you.
+            </p>
+            <div className="contact-details">
+              <a href="mailto:yifanyang80@gmail.com" className="contact-link">
+                <span>Email</span>
+                <span>yifanyang80@gmail.com</span>
+              </a>
+              <a className="contact-link">
+                <span>Mobile</span>
+                <span>(+61) 451 389 103</span>
+              </a>
+              <a
+                href="https://github.com/legityif"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <span>GitHub</span>
+                <span>@legityif</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/yifan-yang-6a8a1a106/"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <span>LinkedIn</span>
+                <span>@linkedin.com/yifan-linkedin</span>
+              </a>
+            </div>
           </div>
         </div>
-        </div>
-        <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+
+        <form
+          className="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <div className="field">
             <label htmlFor="name">Name</label>
-            <input id="name" type="text" placeholder="Who am I speaking with?" />
+            <input
+              id="name"
+              type="text"
+              placeholder="Who am I speaking with?"
+              value={form.name}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            />
           </div>
           <div className="field">
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" placeholder="Where can I reply?" />
+            <input
+              id="email"
+              type="email"
+              placeholder="Where can I reply?"
+              value={form.email}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            />
           </div>
           <div className="field field--grow">
             <label htmlFor="message">Message</label>
@@ -59,13 +127,15 @@ function Contact() {
               id="message"
               rows="4"
               placeholder="A few lines about what you are working on."
+              value={form.message}
+              onChange={handleChange}
+              disabled={isSubmitting}
             />
           </div>
-          <button type="submit" className="button primary full-width">
-            Send message
+          <button type="submit" className="button primary full-width" disabled={isSubmitting}>
+            {isSubmitting ? "Sending…" : "Send message"}
           </button>
-          <p className="form-note">
-          </p>
+          <p className="form-note">{status}</p>
         </form>
       </div>
     </section>
