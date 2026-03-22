@@ -103,6 +103,7 @@ function Contact() {
             <label htmlFor="name">Name</label>
             <input
               id="name"
+              name="name"
               type="text"
               placeholder="Who am I speaking with?"
               value={form.name}
@@ -113,6 +114,7 @@ function Contact() {
           <div className="field">
             <label htmlFor="email">Email</label>
             <input
+              name="email"
               id="email"
               type="email"
               placeholder="Where can I reply?"
@@ -124,6 +126,7 @@ function Contact() {
           <div className="field field--grow">
             <label htmlFor="message">Message</label>
             <textarea
+              name="message"
               id="message"
               rows="4"
               placeholder="A few lines about what you are working on."
