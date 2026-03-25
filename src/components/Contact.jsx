@@ -48,6 +48,7 @@ function Contact() {
         <form
           className="contact-form"
           name="contact"
+          method = "POST"
           netlify
         >
           <div className="field">
