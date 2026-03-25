@@ -48,8 +48,7 @@ function Contact() {
         <form
           className="contact-form"
           name="contact"
-          method="POST"
-          data-netlify="true"
+          netlify
         >
           <div className="field">
             <label htmlFor="name">Name</label>
