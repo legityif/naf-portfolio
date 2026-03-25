@@ -48,8 +48,16 @@ function Contact() {
         <form
           className="contact-form"
           name="contact"
-          netlify
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
           <div className="field">
             <label htmlFor="name">Name</label>
             <input
